@@ -112,8 +112,6 @@ env:
   global:
     - SDL_VIDEODRIVER=dummy
     - SDL_AUDIODRIVER=disk
-    - secure: "VSoeDwpTooSW8K+n2e+nhQOQGQT7PX9GVBF9SmADUIg0Gr5pR2MTlzyGms57tBIYqFndiuLhOXi5zkH2uhMW0mq2VEDRjY4EP12coMWOnwZsdF8Qoj8x39YPR6QSS28Op6g/DLT5DszchwBlpSXHUJEL0/2iw/5A4OnIF5tMcutpkzq+wX3B+WaTqUi9yffto9/LL9/PEUbED50U94ffguwpIMVBUoxvTNhHO1PJmJKGtP1D9PROapQTp+BjzRMfFwe+9WaYPTr2iG5XZ5cNewyQrPcFGdjXOlEGgS3xxIl25l/jHgUHNZKIOKka1h4gajPxNstjnrMkMNaKnGdFo/GwkqnD2igiVT+0oLekIJ0dkVmOecuJJWUVmwCj9xZc//wW1Xunua9zGXjOeSliArnFFoyq3Md1ktOcTOoaKlWM3+0rgNA/2miYzfyMWGuFUACiQ8+fA98j0I7BcLiiUKa1/pD1fLHUcKknrnSA/hPwRBnlmDGtM2FCZobi3jIltZnadkviCpLjSObq7fE59w/+K0fxZn4GKs/xpEtss7xXxs0CmyJwZ6WVxlZAObfUPiRIdj+tglnB31ZdTNWe+7cC9f8zaQYs8+iaiM6DWehOI1o80RcIAuiU10sba89gqSkn+eOfPvzwg4d/z/XJW05weEL18s4ZvYp+JuqhN2Y="
-    - secure: "EGrZt/2EGOAzwcI69la5RgJ1Fr8uXM0TYarCheBrDVwcESNXccH9myyflN97m/jDrdyJB2fmVgI2WDpFdvnpEXNC7+lTEhApgFx6L1TwE/s5Fj6Kd72cERcPmDwLwzQFChXl2kjPTgu/Qr2u2X3EYCfEd0jRf+TcdHasvOLeGuQu7l0cnyW6WK+xMhF1wV8O9F1IdggyeysYIpP/v8rCtmjd268AqploBJ3cM3qau1F9NYBCSUPhu9eZfB0JRhHzeFDbNxRJtG+WZjk2CuGi1W8BGM/CeJkM/3b7iHMEwCYd8JW4k8ZYLSrPUiHkKxSeL9R12+p9u6AHMlXfEfO96Nt8pQkhVP9BxH374RRvQsIl5OxACTAW9XEiqTP7aRXIBSOxX6p3DxUXl6Ogn0d9U5rIu4SUAiaWW9e0k+Oeo/H3OGuerFlBIh6rW4kzVZ7ftcqzVRz9QgnrSy2r93BYzTWwM3eifkFQwtgnBSvXxM151leHOJ9r3PAiRup7V90WZBD4zytQSMaOc+fcdIWscP88sPcLXZEb6n6y7Ja3t5ASO58dXLw9EvqS4CsRYI08ltH85L/cq37dKgpvu33lsx1ZDksiMKtZW7tXhV1DZ9thl1JH/3f9QLRFz+02mJ6FD4PCJRYQvDDs5J4j7rf76FUlcBr+9bAN0sRnPL6UOms="
 script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then $(set | grep PYPI_ | python -c "import sys;print('\n'.join(['unset %s' % l.split('=')[0] for l in sys.stdin.readlines() if l.startswith('PYPI')]))"); fi
   - $PYTHON_EXE -m pygame.tests.__main__ --exclude opengl --time_out 300
@@ -128,7 +126,7 @@ deploy:
   # https://docs.travis-ci.com/user/deployment/releases/
   - provider: releases
     api_key:
-      secure: MzyOmZ6HU16YGuiT66kuTDeGO7Ue+fKCf7HBztuxiHGyVVYdYpDgMIgEKqZ7vAQy9KfdXMzlGkwGesMnOm+i6eU0/USG19yP11ABWJhXe7mv0sGXvQpbMnARARyj73+bSZuNfXrYWOQI9R87LIGqFC3ZEKSgdNdaUQevwW5VG0tEHIeA1FUEL9OTDKsK1KdiG8dwhABZRoC4zak200DwD+1wVyBNSmVBNRa9qRuDeN/MTguqWNLyh1vXSYGB1sl2j0YVWz3uvn/Og0f9tZjcYTZ8/l38Qqvs5EPWmTm8WEtrbYFbPcoctiz1HfQ7ZWi9exJXnNVjguUknJfIsUERZKhqLzR961WI/NRaWtTvKd6RcTYERr+BfvP5nbKryEiifTJKP3OUMKzMAhPPxCp8WPk02lnDAjaxUg6TZ8/lzt6ntDfSfM/50vsN/BRInXU6G4sNb6feklFSpgoqatSKk45V+7jXnCXMmiPbSAdYAcZn/PllFdob7wYOfOED2ynKubZiSI1fRQTdMsUZP0H1Ax5zQpUtEbaXnD1DQRv+UlE0TyQxV4w2D8ZAFKBPxOqDKzODCbJ7fVvUR0SSO0+a8w2rWp2h3MIs+HGDdYII28cM1CHRyqnlMjo6o9eEd/Wi/f5hoL5RkN8OuLUHBLp4mC2D69XI8XzHreigqs1lJgg=
+      secure: NyaCDB9oKIuM78ZzbSqdvXjJoOFYmFHCcrRHrigMJOQPMhQ//2M/pOrT2IT+u49z9X1YrqapZEPVQLAXoSf66vraGKcBDfePfzHcd7BzQCXzRIPJabSti4pRRf3hmtHTLXDyQXDTDOokNQIYUSHQM5DwxOPkdYrDuJsKcdZYb9ZLs3A4SGZG9xcKTXPHZSVDZW0j3/nLtdnv2RFL9gEaj7Z6MmZsXGGEeu6dkylx1ySC49VZR2xssdTnkYMRYYL25oqOk98MC4jKJsPXqI7VHc6qwtIDfIQ9ZbUGyD4ZyqHaaiCr50ifUTLmnlusTPb/pQd6qN8RQDkpknxs0hD9WhhRxVcMY6OJB3VyxKSvkeV3YusYQEWpnI5sidSMF6kGI9kajGMGk0QDtoTqmtq8P0rnttmARDG1HLdM3xMX3VFh7y6SkxLhMPBEsDrR+y2pw7DUUK5joOY+LZXl7hbTZmn/O1u39wPUmkNfkomdKwWzf+6PH14qNUxecZj2xf/G/RZnOOuzh79cJeD0G21WC9IBdcJrea6OqCEjwS+w2ynFyxeww4Bp/1q3jiXVpPr4ZNsd5sfFdgiG2FCcSWnXCbEWaM5OYrZ7Vo8r5/T+d4F3rEiBTDsG2fynEc8nSDXMMPCRi2NSc3pljrVW/ZSkfSVx8xyNqv04FRZYphwL4pc=
     file_glob: true
     file:
       - dist/*.whl
@@ -140,5 +138,5 @@ deploy:
       #   only:
       #     - master
       tag: true
-      repo: pygame/pygame
+      repo: cartr/pygame-polite
       condition: $GITHUB_UPLOAD = yes
